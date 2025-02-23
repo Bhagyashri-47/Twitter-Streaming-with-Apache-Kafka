@@ -1,1 +1,228 @@
+Below is the code structured separately for each model, following the format in your image.
 
+Make sure you have installed necessary libraries before running the code:
+
+pip install numpy pandas scikit-learn xgboost lightgbm catboost
+
+1. Logistic Regression
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix
+
+# Initialize and train the model
+clf = LogisticRegression()
+clf.fit(X_train, Y_train)
+
+# Predictions
+Y_pred = clf.predict(X_test)
+Y_pred_proba = clf.predict_proba(X_test)[:, 1]
+
+# Evaluation Metrics
+print("ACCURACY OF THE MODEL:", accuracy_score(Y_test, Y_pred))
+print("PRECISION OF THE MODEL:", precision_score(Y_test, Y_pred))
+print("RECALL OF THE MODEL:", recall_score(Y_test, Y_pred))
+print("F1 SCORE OF THE MODEL:", f1_score(Y_test, Y_pred))
+print("ROC AUC SCORE OF THE MODEL:", roc_auc_score(Y_test, Y_pred_proba))
+
+# Confusion Matrix
+print("CONFUSION MATRIX:\n", confusion_matrix(Y_test, Y_pred))
+
+2. K-Nearest Neighbors (KNN)
+
+from sklearn.neighbors import KNeighborsClassifier
+
+# Initialize and train the model
+clf = KNeighborsClassifier(n_neighbors=5)
+clf.fit(X_train, Y_train)
+
+# Predictions
+Y_pred = clf.predict(X_test)
+
+# Evaluation Metrics
+print("ACCURACY OF THE MODEL:", accuracy_score(Y_test, Y_pred))
+print("PRECISION OF THE MODEL:", precision_score(Y_test, Y_pred))
+print("RECALL OF THE MODEL:", recall_score(Y_test, Y_pred))
+print("F1 SCORE OF THE MODEL:", f1_score(Y_test, Y_pred))
+
+# Confusion Matrix
+print("CONFUSION MATRIX:\n", confusion_matrix(Y_test, Y_pred))
+
+3. Naïve Bayes
+
+from sklearn.naive_bayes import GaussianNB
+
+# Initialize and train the model
+clf = GaussianNB()
+clf.fit(X_train, Y_train)
+
+# Predictions
+Y_pred = clf.predict(X_test)
+Y_pred_proba = clf.predict_proba(X_test)[:, 1]
+
+# Evaluation Metrics
+print("ACCURACY OF THE MODEL:", accuracy_score(Y_test, Y_pred))
+print("PRECISION OF THE MODEL:", precision_score(Y_test, Y_pred))
+print("RECALL OF THE MODEL:", recall_score(Y_test, Y_pred))
+print("F1 SCORE OF THE MODEL:", f1_score(Y_test, Y_pred))
+print("ROC AUC SCORE OF THE MODEL:", roc_auc_score(Y_test, Y_pred_proba))
+
+# Confusion Matrix
+print("CONFUSION MATRIX:\n", confusion_matrix(Y_test, Y_pred))
+
+4. Decision Tree
+
+from sklearn.tree import DecisionTreeClassifier
+
+# Initialize and train the model
+clf = DecisionTreeClassifier()
+clf.fit(X_train, Y_train)
+
+# Predictions
+Y_pred = clf.predict(X_test)
+
+# Evaluation Metrics
+print("ACCURACY OF THE MODEL:", accuracy_score(Y_test, Y_pred))
+print("PRECISION OF THE MODEL:", precision_score(Y_test, Y_pred))
+print("RECALL OF THE MODEL:", recall_score(Y_test, Y_pred))
+print("F1 SCORE OF THE MODEL:", f1_score(Y_test, Y_pred))
+
+# Confusion Matrix
+print("CONFUSION MATRIX:\n", confusion_matrix(Y_test, Y_pred))
+
+5. Support Vector Machine (SVM)
+
+from sklearn.svm import SVC
+
+# Initialize and train the model
+clf = SVC(probability=True)
+clf.fit(X_train, Y_train)
+
+# Predictions
+Y_pred = clf.predict(X_test)
+Y_pred_proba = clf.predict_proba(X_test)[:, 1]
+
+# Evaluation Metrics
+print("ACCURACY OF THE MODEL:", accuracy_score(Y_test, Y_pred))
+print("PRECISION OF THE MODEL:", precision_score(Y_test, Y_pred))
+print("RECALL OF THE MODEL:", recall_score(Y_test, Y_pred))
+print("F1 SCORE OF THE MODEL:", f1_score(Y_test, Y_pred))
+print("ROC AUC SCORE OF THE MODEL:", roc_auc_score(Y_test, Y_pred_proba))
+
+# Confusion Matrix
+print("CONFUSION MATRIX:\n", confusion_matrix(Y_test, Y_pred))
+
+6. Random Forest
+
+from sklearn.ensemble import RandomForestClassifier
+
+# Initialize and train the model
+clf = RandomForestClassifier(n_estimators=100)
+clf.fit(X_train, Y_train)
+
+# Predictions
+Y_pred = clf.predict(X_test)
+Y_pred_proba = clf.predict_proba(X_test)[:, 1]
+
+# Evaluation Metrics
+print("ACCURACY OF THE MODEL:", accuracy_score(Y_test, Y_pred))
+print("PRECISION OF THE MODEL:", precision_score(Y_test, Y_pred))
+print("RECALL OF THE MODEL:", recall_score(Y_test, Y_pred))
+print("F1 SCORE OF THE MODEL:", f1_score(Y_test, Y_pred))
+print("ROC AUC SCORE OF THE MODEL:", roc_auc_score(Y_test, Y_pred_proba))
+
+# Confusion Matrix
+print("CONFUSION MATRIX:\n", confusion_matrix(Y_test, Y_pred))
+
+7. AdaBoost
+
+from sklearn.ensemble import AdaBoostClassifier
+
+# Initialize and train the model
+clf = AdaBoostClassifier(n_estimators=100)
+clf.fit(X_train, Y_train)
+
+# Predictions
+Y_pred = clf.predict(X_test)
+Y_pred_proba = clf.predict_proba(X_test)[:, 1]
+
+# Evaluation Metrics
+print("ACCURACY OF THE MODEL:", accuracy_score(Y_test, Y_pred))
+print("PRECISION OF THE MODEL:", precision_score(Y_test, Y_pred))
+print("RECALL OF THE MODEL:", recall_score(Y_test, Y_pred))
+print("F1 SCORE OF THE MODEL:", f1_score(Y_test, Y_pred))
+print("ROC AUC SCORE OF THE MODEL:", roc_auc_score(Y_test, Y_pred_proba))
+
+# Confusion Matrix
+print("CONFUSION MATRIX:\n", confusion_matrix(Y_test, Y_pred))
+
+8. Gradient Boosting
+
+from sklearn.ensemble import GradientBoostingClassifier
+
+# Initialize and train the model
+clf = GradientBoostingClassifier(n_estimators=100)
+clf.fit(X_train, Y_train)
+
+# Predictions
+Y_pred = clf.predict(X_test)
+
+# Evaluation Metrics
+print("ACCURACY OF THE MODEL:", accuracy_score(Y_test, Y_pred))
+print("PRECISION OF THE MODEL:", precision_score(Y_test, Y_pred))
+print("RECALL OF THE MODEL:", recall_score(Y_test, Y_pred))
+print("F1 SCORE OF THE MODEL:", f1_score(Y_test, Y_pred))
+
+# Confusion Matrix
+print("CONFUSION MATRIX:\n", confusion_matrix(Y_test, Y_pred))
+
+9. XGBoost
+
+from xgboost import XGBClassifier
+
+# Initialize and train the model
+clf = XGBClassifier(use_label_encoder=False, eval_metric='logloss')
+clf.fit(X_train, Y_train)
+
+# Predictions
+Y_pred = clf.predict(X_test)
+
+# Evaluation Metrics
+print("ACCURACY OF THE MODEL:", accuracy_score(Y_test, Y_pred))
+print("PRECISION OF THE MODEL:", precision_score(Y_test, Y_pred))
+print("RECALL OF THE MODEL:", recall_score(Y_test, Y_pred))
+print("F1 SCORE OF THE MODEL:", f1_score(Y_test, Y_pred))
+
+# Confusion Matrix
+print("CONFUSION MATRIX:\n", confusion_matrix(Y_test, Y_pred))
+
+10. LightGBM
+
+from lightgbm import LGBMClassifier
+
+# Initialize and train the model
+clf = LGBMClassifier()
+clf.fit(X_train, Y_train)
+
+# Predictions
+Y_pred = clf.predict(X_test)
+
+# Evaluation Metrics
+print("ACCURACY OF THE MODEL:", accuracy_score(Y_test, Y_pred))
+print("CONFUSION MATRIX:\n", confusion_matrix(Y_test, Y_pred))
+
+11. CatBoost
+
+from catboost import CatBoostClassifier
+
+# Initialize and train the model
+clf = CatBoostClassifier(verbose=0)
+clf.fit(X_train, Y_train)
+
+# Predictions
+Y_pred = clf.predict(X_test)
+
+# Evaluation Metrics
+print("ACCURACY OF THE MODEL:", accuracy_score(Y_test, Y_pred))
+print("CONFUSION MATRIX:\n", confusion_matrix(Y_test, Y_pred))
+
+Let me know if you need any modifications!
