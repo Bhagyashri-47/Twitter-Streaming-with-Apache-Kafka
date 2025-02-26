@@ -1,0 +1,26 @@
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy.stats import skew, kurtosis
+
+# Sample Data (Replace with your actual cycle_time data)
+cycle_time = np.random.normal(50, 15, 1000)  # Example Normal Distribution
+
+# Compute Skewness and Kurtosis
+skewness = skew(cycle_time)
+kurt = kurtosis(cycle_time)
+
+# Plot Histogram with KDE
+plt.figure(figsize=(10, 6))
+sns.histplot(cycle_time, kde=True, bins=30, color='blue', edgecolor='black')
+plt.axvline(np.mean(cycle_time), color='red', linestyle='dashed', label='Mean')
+
+# Add Text for Skewness and Kurtosis
+plt.text(np.mean(cycle_time), plt.ylim()[1] * 0.9, f'Skewness: {skewness:.2f}\nKurtosis: {kurt:.2f}', 
+         fontsize=12, bbox=dict(facecolor='white', alpha=0.5))
+
+plt.title("Distribution with Skewness and Kurtosis")
+plt.xlabel("Cycle Time")
+plt.ylabel("Frequency")
+plt.legend()
+plt.show()
