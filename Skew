@@ -1,0 +1,41 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy.stats import skew, kurtosis, probplot
+
+# Calculate and display skewness & kurtosis for numeric columns
+numeric_cols = df1.select_dtypes(include=[np.number]).columns
+
+for col in numeric_cols:
+    col_data = df1[col].dropna()  # Remove NaN values
+    
+    # Compute Skewness and Kurtosis
+    col_skew = skew(col_data)
+    col_kurt = kurtosis(col_data)
+    
+    print(f"Column: {col}")
+    print(f" Skewness: {col_skew:.4f}")
+    print(f" Kurtosis: {col_kurt:.4f}\n")
+
+    # Plot Histogram with KDE
+    plt.figure(figsize=(10, 5))
+    sns.histplot(col_data, kde=True, bins=30, color='blue', edgecolor='black')
+    plt.axvline(np.mean(col_data), color='red', linestyle='dashed', label='Mean')
+    plt.title(f"Histogram & KDE - {col}")
+    plt.xlabel(col)
+    plt.ylabel("Frequency")
+    plt.legend()
+    plt.show()
+
+    # Plot Boxplot
+    plt.figure(figsize=(8, 4))
+    sns.boxplot(x=col_data, color='skyblue')
+    plt.title(f"Box Plot - {col}")
+    plt.show()
+
+    # QQ Plot to visualize Kurtosis
+    plt.figure(figsize=(6, 6))
+    probplot(col_data, dist="norm", plot=plt)
+    plt.title(f"QQ Plot - {col}")
+    plt.show()
